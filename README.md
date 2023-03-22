@@ -1,1 +1,0 @@
-# rokit-locator-qr-addon
