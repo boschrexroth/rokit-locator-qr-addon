@@ -1,0 +1,12 @@
+mapping_repeat_num: 2
+loc_repeat_num: 4
+loc_error_threshold: 0.02
+observationType: 2
+calibrationType: 0
+hasOrientation: true
+maxrow_selfDb_reserve: 3000
+seed_sloppy_threshold: 0.20
+last_backup_time: 20230220
+LASERstaticCalibSENSOR_x: 0
+LASERstaticCalibSENSOR_y: 0
+LASERstaticCalibSENSOR_yaw: 0
