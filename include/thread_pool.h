@@ -1,20 +1,24 @@
-//==================================================================================
-//  *  C O P Y R I G H T
-//  *
-//----------------------------------------------------------------------------------
-//  *  Copyright (c) 2022 by the Shanghai Bosch Rexroth Hydraulics & Automation
-// Ltd.. All rights reserved.   *   *  This file is property of the Shanghai
-// Bosch Rexroth Hydraulics & Automation Ltd..   *  Any unauthorized copy or use
-// or distribution is an offensive act against   *  international law and may be
-// prosecuted under federal law.   *  Its content is company confidential.   *
-//==================================================================================
-//  *  I N I T I A L   A U T H O R   I D E N T I T Y
-//  *
-//----------------------------------------------------------------------------------
-//  *  Created on: 15.12.2022
-//  *  Author    : Xu Zihang
-//  *
-//==================================================================================
+//
+// MIT License
+
+// Copyright(c) 2022 Shanghai Bosch Rexroth Hydraulics &Automation Ltd.
+
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files(the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish , distribute, sublicense, and / or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions :
+
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED
+// "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+// HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+// ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+// WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+//
 
 #ifndef MAINLOGICHEADER
 #define MAINLOGICHEADER
@@ -22,7 +26,7 @@
 #endif
 
 class ThreadHandler {
-public:
+ public:
   ThreadHandler() = default;
   void execUserCommand();
   void listenMode(std::shared_ptr<uint16_t>);

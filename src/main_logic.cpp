@@ -1,20 +1,24 @@
-//==================================================================================
-//  *  C O P Y R I G H T
-//  *
-//----------------------------------------------------------------------------------
-//  *  Copyright (c) 2022 by the Shanghai Bosch Rexroth Hydraulics & Automation
-// Ltd.. All rights reserved.   *   *  This file is property of the Shanghai
-// Bosch Rexroth Hydraulics & Automation Ltd..   *  Any unauthorized copy or use
-// or distribution is an offensive act against   *  international law and may be
-// prosecuted under federal law.   *  Its content is company confidential.   *
-//==================================================================================
-//  *  I N I T I A L   A U T H O R   I D E N T I T Y
-//  *
-//----------------------------------------------------------------------------------
-//  *  Created on: 15.12.2022
-//  *  Author    : Xu Zihang
-//  *
-//==================================================================================
+//
+// MIT License
+
+// Copyright(c) 2022 Shanghai Bosch Rexroth Hydraulics &Automation Ltd.
+
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files(the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish , distribute, sublicense, and / or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions :
+
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED
+// "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+// HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+// ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+// WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+//
 
 #include "database_controller.h"
 #include "rpc_client.h"
@@ -140,27 +144,27 @@ int main() {
 
   /*main while*/
   while (threadHandler.dmTrigger(dmPtr, modePtr, locStatPtr, deviInfo,
-                                 rokitPosePtr)) {  
+                                 rokitPosePtr)) {
     std::unique_lock<std::mutex> lockGuard7(threadHandler.myMutex);
     std::shared_ptr<DM> oriTriggerDmPtr = std::make_shared<DM>();
     oriTriggerDmPtr->dmInfo = dmPtr->dmInfo;
     if (RECORDING == (*modePtr)) {
-      if (userDB.retrieveUsrDb(dmPtr)) {  
+      if (userDB.retrieveUsrDb(dmPtr)) {
         dmPtr->updateCnt();
         dmPtr->getInfo(dmInfoPtr);
         if (dmInfoPtr->cnt == configPtr->mappRepeatNum &&
             !(dmInfoPtr->enable)) {
           dmPtr->setRecommend();
           oriTriggerDmPtr->setRecommend();
-          selfDB.addContent(oriTriggerDmPtr);  
+          selfDB.addContent(oriTriggerDmPtr);
           selfDB.fitPose(configPtr->mappRepeatNum, dmPtr);
         } else if (!(dmInfoPtr->enable)) {
           selfDB.addContent(oriTriggerDmPtr);
         }
         if (dmInfoPtr->enable) {
-          dmPtr->setRecommend();  
+          dmPtr->setRecommend();
           getSessionId(rpcInfoPtr, globalId, sessionIdPtr, accountPtr);
-          rpcInfoPtr->id = globalId++; 
+          rpcInfoPtr->id = globalId++;
           rpcInfoPtr->method = "clientGlobalAlignAddObservation";
           RpcClientGLA rpcClientGLA(rpcInfoPtr, dmInfoPtr, configPtr, deviInfo,
                                     sessionIdPtr);
@@ -193,7 +197,7 @@ int main() {
       }
     }
     if (LOCALIZATION == (*modePtr)) {
-      if (userDB.retrieveUsrDb(dmPtr)) {  
+      if (userDB.retrieveUsrDb(dmPtr)) {
         dmPtr->updateCnt();
         oriTriggerDmPtr->updateCnt();
         dmPtr->getInfo(dmInfoPtr);
@@ -220,7 +224,7 @@ int main() {
         if (dmInfoPtr->cnt == configPtr->locRepeatNum && !(dmInfoPtr->enable)) {
           dmPtr->setRecommend();
           oriTriggerDmPtr->setRecommend();
-          selfDB.addContent(oriTriggerDmPtr);  
+          selfDB.addContent(oriTriggerDmPtr);
           selfDB.fitPose(configPtr->locRepeatNum, dmPtr);
         } else if (!(dmInfoPtr->enable)) {
           selfDB.addContent(oriTriggerDmPtr);
