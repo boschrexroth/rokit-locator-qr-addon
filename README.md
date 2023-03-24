@@ -92,7 +92,7 @@ sudo make install
 
 Copyright (c) 2022 Shanghai Bosch Rexroth Hydraulics & Automation Ltd.
 
-Please note that any trademarks, logos and pictures contained or linked to in this Software are owned by or copyright © Bosch Rexroth AG 2021 and not licensed under the Software's license terms.
+Please note that any trademarks, logos and pictures contained or linked to in this Software are owned by or copyright © Bosch Rexroth AG or Shanghai Bosch Rexroth Hydraulics & Automation Ltd. and not licensed under the Software's license terms.
 
 <https://www.boschrexroth.com>
 
